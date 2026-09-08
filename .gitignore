@@ -13,3 +13,6 @@ __pycache__/
 
 # Jupyter checkpoints
 .ipynb_checkpoints/
+
+# Assignment brief handouts (not my work)
+*.docx
