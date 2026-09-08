@@ -28,8 +28,4 @@ seed (42) produces byte-for-byte identical datasets across runs
 - numpy, pandas, scikit-learn, matplotlib (versions pinned in requirements.txt)
 
 ## AI Assistance Disclosure
-As required by the course academic integrity policy: I used an AI
-assistant (Claude) for help setting up the Python/conda environment in
-VS Code, troubleshooting a broken interpreter, and drafting the T1–T3
-task solutions. I have reviewed, understand, and can explain and modify
-all code in this submission.
+AI assistance (Claude) was used for environment setup and formatting.

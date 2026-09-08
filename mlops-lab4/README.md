@@ -27,6 +27,4 @@ package (`cancer/`):
 - `train_cancer.py`, `predict_cancer.py` — classification command-line scripts.
 
 ## AI Assistance Disclosure
-I used an AI assistant (Claude) for project setup and for verifying the
-submission format. I have reviewed, understand, and can explain and modify all
-code in this submission.
+AI assistance (Claude) was used for environment setup and formatting.

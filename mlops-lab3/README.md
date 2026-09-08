@@ -18,6 +18,4 @@ matrix and classification metrics.
 - `data/` — generated delivery dataset (seed 42).
 
 ## AI Assistance Disclosure
-I used an AI assistant (Claude) for project setup and for verifying the
-submission format. I have reviewed, understand, and can explain and modify all
-code in this submission.
+AI assistance (Claude) was used for environment setup and formatting.
