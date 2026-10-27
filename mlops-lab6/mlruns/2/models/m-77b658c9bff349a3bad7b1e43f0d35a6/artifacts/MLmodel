@@ -1,0 +1,23 @@
+artifact_path: /Users/shikkoustic/Documents/MLOps Lab/mlops-lab6/mlruns/2/models/m-77b658c9bff349a3bad7b1e43f0d35a6/artifacts
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    predict_fn: predict
+    python_version: 3.13.5
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.6.1
+    skops_trusted_types: null
+mlflow_version: 3.17.2
+model_id: m-77b658c9bff349a3bad7b1e43f0d35a6
+model_size_bytes: 163485
+model_uuid: m-77b658c9bff349a3bad7b1e43f0d35a6
+prompts: null
+run_id: 9c0e884878ce475b8824025ba36c8183
+utc_time_created: '2026-10-27 05:17:50.734377'
