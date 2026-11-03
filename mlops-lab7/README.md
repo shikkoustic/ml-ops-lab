@@ -25,20 +25,44 @@ Same pattern applied to a classification problem:
 - Run with `uvicorn` on port 8001; `/docs` screenshot shows a successful
   `POST /predict` call returning `{"species": "setosa"}`.
 
+## Addendum — Registry and Native Serving (P07 submission)
+The course's actual P07 assignment asks for a different serving path than
+the FastAPI notebook above: promoting a registered model to the
+**Production** stage and serving it directly from the **MLflow Model
+Registry** with MLflow's own built-in server, rather than a custom API.
+
+`promote_and_serve.py` promotes `cancer-classifier` (registered in
+Practical 06, in `mlops-lab6/mlflow.db`) to Production, then it's served
+with `mlflow models serve -m "models:/cancer-classifier/1" --port 5005
+--env-manager local` and tested with `curl` against `/invocations` using
+`sample_request.json` — a real held-out test sample. The served model
+correctly predicted its true label (benign).
+
 ## Files
 - `lab7.ipynb` — notebook, run top to bottom with outputs.
 - `work/app.py`, `work/model.joblib` — the delivery-time service (Steps 1-5).
 - `task/iris_app.py`, `task/iris_model.joblib`, `task/iris_target_names.joblib`
   — the Iris classification service.
+- `promote_and_serve.py`, `sample_request.json` — the registry/native-serving
+  addendum (see above).
 
 ## How to run
 ```
-pip install fastapi uvicorn httpx scikit-learn pandas numpy joblib
+pip install fastapi uvicorn httpx scikit-learn pandas numpy joblib mlflow
 jupyter lab lab7.ipynb                    # run all cells (trains + saves both models)
 python -m uvicorn app:app --port 8000     # from work/   — delivery service
 python -m uvicorn iris_app:app --port 8001  # from task/ — iris service
 ```
 Then open `http://127.0.0.1:8000/docs` or `http://127.0.0.1:8001/docs`.
+
+For the registry/native-serving addendum, from `mlops-lab6/` (where
+`cancer-classifier` is registered):
+```
+python3 ../mlops-lab7/promote_and_serve.py
+export MLFLOW_TRACKING_URI=sqlite:///mlflow.db
+mlflow models serve -m "models:/cancer-classifier/1" --port 5005 --env-manager local
+curl -X POST http://127.0.0.1:5005/invocations -H "Content-Type: application/json" -d @../mlops-lab7/sample_request.json
+```
 
 ## AI Assistance Disclosure
 Claude AI used for experiment setup and helping with execution where I struggled.
